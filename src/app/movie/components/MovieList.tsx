@@ -74,8 +74,8 @@ const MovieList = forwardRef<MovieListRef, MovieListProps>((props, ref) => {
     setMovieList([]); // moveList를 빈 배열로 초기화하지 않으면 getMovieList에 의해 같은 데이터가 배열에 중복되어 출력되고 key 에러 발생
 
     /*
-      isTabChanged를 flag 역할로 사용하여 쿼리스트링이 존재한 상태에서 탭 변경 시
-      getMovieList 함수를 호출 할 수 있도록 함
+      isTabChanged를 flag 역할로 사용하여 쿼리스트링이 존재한 상태에서
+      탭 변경 시 getMovieList 함수를 호출 할 수 있도록 함
     */
     if (!getSearchTitle || props.isTabChanged) {
       getMovieList(1);
