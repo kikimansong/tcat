@@ -109,7 +109,7 @@ const ReservationSeatModal = forwardRef<ReservationSeatModalRef, ReservationSeat
 
   /**
    * 예매수 증감 버튼 클릭 이벤트
-   * @param {string} flag increase : 예매 수 증가 | decrease : 예매 수 감수
+   * @param {string} flag increase : 예매 수 증가 | decrease : 예매 수 감소
    */
   // const handleCount = useCallback((flag: string) => {
   //   setCount((prevCount) => {
