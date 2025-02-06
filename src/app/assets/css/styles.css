@@ -1,0 +1,1764 @@
+/* 텍스트 드래그 방지 */
+body {
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none
+}
+
+/* 텍스트 드래그 허용 */
+.draggable {
+  -webkit-user-select:text;
+  -moz-user-select:text;
+  -ms-user-select:text;
+  user-select:text
+}
+
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  -user-drag: none;
+}
+
+.font-1rem {
+  font-size: 1rem;
+}
+
+.flex_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex_center_column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.full_width {
+  width: 100%;
+}
+
+.wrap {
+  height: auto;
+  min-height: 100%;
+  padding-bottom: 200px; /* 푸터 높이 만큼 */
+}
+
+.container {
+  width: 100%;
+  min-width: 1100px;
+}
+
+/* 로그인, 회원가입에서만 사용 */
+.container_no_footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-width: 1100px;
+  height: 100vh;
+  background: url('/images/sign_background.jpg');
+  background-size: cover;
+  color: #fff;
+}
+
+/************************************************************/
+
+.header {
+  background: #22194D;
+  min-width: 1100px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.header .header_top {
+  max-width: 1100px;
+  min-width: 1100px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header .header_top > ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+.header .header_top > ul li {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 11pt;
+}
+
+.header .header_top > ul li .link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.header .header_top > ul li .link_icon {
+  font-size: 11pt;
+  margin-right: 5px;
+}
+
+
+.header_wrap {
+  max-width: 1100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header_container {
+  min-width: 1100px;
+  display: flex;
+  justify-content: center;
+  /* align-items: flex-end; */
+}
+
+.header .logo {
+  /* width: 140px; */
+  /* margin: 0px 50px; */
+  margin: auto;
+}
+
+.header .logo img {
+  margin: auto;
+}
+
+.header .menu_wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  justify-content: flex-end;
+  align-items: center;
+  flex-basis: 50%;
+  /* background: gray; */
+}
+
+.header .menu_wrap a {
+  font-size: 13pt;
+  font-family: sans-serif;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 2px;
+  position: relative;
+  text-align: center;
+  padding: 3px 10px;
+  width: 150px;
+}
+
+.header .menu_wrap ul {
+  margin: 10px;
+}
+
+.header .menu_wrap ul li {
+  display: inline-block;
+  line-height: 40px;
+}
+
+.header .menu_wrap ul li {
+  /* background: #a3d7ef; */
+  a::after {
+    width: 100%;
+    height: 0;
+    background: #fff;
+    content: '';
+    position: absolute;
+    top: 75%;
+    left: 0;
+    opacity: 0;
+    transition: all 0.3s ease-out;
+    margin: auto;
+  }
+  a:hover::after {
+    opacity: 1;
+    top: 100%;
+    height: 4px;
+  }
+}
+
+.header .menu_left_wrap ul li {
+  margin-right: 20px;
+}
+
+.header .menu_right_wrap ul li {
+  margin-left: 20px;
+}
+
+/************************************************************/
+
+.breadcrumbs_wrap {
+  background: #4b3993;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  min-width: 1100px;
+}
+
+.breadcrumbs {
+  width: 1100px;
+  max-width: 1100px;
+  /* css의 적용되는 순서가 MUI sx 인라인 스타일보다 늦음... */
+  /* color: #fff; */ 
+}
+
+/************************************************************/
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  min-width: 1100px;
+  background: #212121;
+  color: #f8f8f8b4;
+  position: relative;
+  transform: translateY(-100%);
+}
+
+/************************************************************/
+
+/* 컨텐츠 전체 영역 */
+.contents {
+  min-width: 1100px;
+}
+
+.section_container {
+  display: flex;
+  padding: 50px 0 50px 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 1100px;
+  min-width: 1100px;
+  position: relative; /* 블러 처리된 배경 위에 콘텐츠를 배치 */
+  z-index: 2; /* 가상 요소보다 위에 표시 */
+}
+
+.bg_filter {
+  background-image: url('/images/detail-pattern.png');
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+.now_movie_section {
+  position: relative;
+  background-image: url('/images/banner_background.png'); /* 배경 이미지 */
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.now_movie_section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(20px) brightness(0.8);
+  z-index: 1;
+}
+
+.now_movie_section .banner_txt {
+  animation: .8s shake infinite alternate;
+}
+
+@keyframes shake {
+  0% { transform: skewX(-15deg); }
+  5% { transform: skewX(15deg); }
+  10% { transform: skewX(-15deg); }
+  15% { transform: skewX(15deg); }
+  20% { transform: skewX(0deg); }
+  100% { transform: skewX(0deg); }  
+}
+
+.now_movie_section .section_container {
+  position: relative; /* 콘텐츠를 배경 위에 표시 */
+  z-index: 2; /* 배경보다 위에 배치 */
+}
+
+.now_movie_section .main_search_box {
+  background: #00000060;
+  padding: 20px;
+  width: 35%;
+  border-radius: 8px;
+}
+
+.now_movie_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  margin: 70px 0 20px 0;
+  color: #fff;
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+.now_movie_top > div {
+  flex: 1;
+}
+
+.now_movie_top > div:nth-child(2) {
+  flex: 1;
+  text-align: center;
+}
+
+.now_movie_top > div:nth-child(3) {
+  flex: 1;
+  text-align: right;
+}
+
+.now_movie_list_container {
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.now_movie_list_container ol {
+  display: flex;
+  /* justify-content: space-between; */
+  justify-content: space-around;
+  gap: 40px;
+  list-style: none;
+  padding-bottom: 0px;
+}
+
+.now_movie_list_container ol li {
+  width: 245px;
+  animation: fadeInUp 1s;
+}
+
+.now_movie_list_container ol li.loading {
+  animation: unset !important;
+}
+
+.now_movie_list_container ol li.loading .image_skeleton {
+  height: 350px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.now_movie_list_container ol li .movie_item_box {
+  display: block;
+  position: relative;
+  height: 350px;
+  cursor: pointer;
+}
+
+.now_movie_list_container .movie_grade_wrap {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+}
+
+.now_movie_list_container .movie_grade_wrap .age {
+  width: 28px;
+  height: 28px;
+}
+
+.now_movie_list_container .movie_grade_wrap .movie_grade {
+  width: 28px;
+  height: 28px;
+}
+
+.now_movie_list_container .movie_grade_wrap .age_12 {
+  background-image: url('/images/age/age-12.png');
+  background-size: 28px 28px;
+}
+
+.now_movie_list_container .movie_grade_wrap .age_15 {
+  background-image: url('/images/age/age-15.png');
+  background-size: 28px 28px;
+}
+
+.now_movie_list_container .movie_grade_wrap .age_19 {
+  background-image: url('/images/age/age-19.png');
+  background-size: 28px 28px;
+}
+
+.now_movie_list_container .movie_grade_wrap .age_all {
+  background-image: url('/images/age/age-all.png');
+  background-size: 28px 28px;
+}
+
+.now_movie_list_container .rank {
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  padding: 10px 0 0 15px;
+  font-size: 2em;
+  font-style: italic;
+  font-weight: 300;
+  color: #ffffff;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.8);
+  background: url('/images/rank_shadow.png') no-repeat 0 0;
+  border-radius: 5px;
+}
+
+.movie_img {
+  width: 100% !important;
+  height: 350px !important; /* .now_movie_list_container ol li a | height 높이와 같아야 됨 */
+  border-radius: 5px;
+}
+
+.movie_info_container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  padding: 25px;
+  color: #ffffff;
+  background-color: rgba(0,0,0,0.8);
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+  border-radius: 5px;
+}
+
+.movie_info_container:hover, .movie_info_container:focus {
+  opacity: 1;
+}
+
+.movie_info_container .movie_info {
+  overflow: hidden;
+  /* height: 152px; */
+  height: 100%;
+}
+
+.movie_btn_group {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 8px;
+}
+
+.movie_btn_group .rating_btn {
+  background: #000;
+  border: 1px solid #555;
+  border-color: #555;
+  width: 28%;
+  cursor: default;
+}
+
+.movie_btn_group .reservation_btn {
+  width: 70%;
+}
+
+.event_section {
+  background: #fff;
+}
+
+.event_section .section_container {
+  align-items: start;
+}
+
+.event_section .section_container > h2 {
+  color: #503396;
+  font-size: 2em;
+  padding-bottom: 20px;
+  font-weight: 400;
+}
+
+.event_section .row_box {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.event_section .row_box .carousel_box {
+  display: flex;
+  width: 60%;
+  padding: 10px 10px 10px 0;
+}
+
+.event_section .row_box .progress {
+  margin: auto;
+}
+
+.event_section .row_box .carousel_box > div {
+  width: 100%;
+  height: 300px;
+}
+
+.event_section .row_box .list_box {
+  width: 40%;
+  padding: 10px 0 10px 10px;
+}
+
+.event_section .row_box .list_box .list_box_bg {
+  background: #00000090;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  justify-content: unset !important;
+}
+
+.event_section .row_box .list_box .list_box_bg > div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+}
+
+.event_section .row_box .list_box .list_box_bg > div > p {
+  color: #fff;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.event_section .row_box .list_box .list_box_bg > div > a > .more {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.event_section ul {
+  width: 100%;
+  text-align: center;
+}
+
+.event_section ul li {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  width: 100%;
+  padding: 8px 0;
+  color: #fff;
+  border-bottom: 1px solid #555;
+}
+
+.event_section ul li:hover {
+  text-shadow: 0 0 10px #fff !important;
+}
+
+.event_section ul li:last-child {
+  border-bottom: none;;
+}
+
+.event_section ul li .title {
+  width: 75%;
+  float: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.event_section ul li .date {
+  width: 25%;
+  float: right;
+  border-left: 1px solid #555;
+}
+
+.notice_section {
+  background: #4b3993;
+}
+
+.notice_section .faq {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  margin-top: 10px;
+}
+
+.notice_section .notice_box {
+  background: #00000090;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+}
+
+.notice_section .notice_box .more {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.notice_section .notice_box .notice_box_top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+
+.notice_section .section_container {
+  align-items: start;
+}
+
+.notice_section .section_container > h2 {
+  color: #fff;
+  font-size: 2em;
+  padding-bottom: 20px;
+  font-weight: 400;
+}
+
+.notice_section ul {
+  width: 100%;
+  text-align: center;
+  padding: 0 100px;
+  margin-bottom: 8px;
+}
+
+.notice_section ul li {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  width: 100%;
+  padding: 8px 0;
+  color: #fff;
+  border-bottom: 1px solid #555;
+}
+
+.notice_section ul li:hover {
+  text-shadow: 0 0 10px #fff !important;
+}
+
+.notice_section ul li:last-child {
+  border-bottom: none;;
+}
+
+.notice_section ul li .title {
+  width: 85%;
+  float: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.notice_section ul li .date {
+  width: 15%;
+  float: right;
+  border-left: 1px solid #555;
+}
+
+/********************************************************/
+/************************ moive *************************/
+/********************************************************/
+
+.movie_list_section .search_box {
+  width: 35%;
+  float: right;
+}
+
+.movie_list_section .clear_right {
+  clear: right;
+}
+
+.movie_list_container {
+  width: 100%;
+  /* margin-bottom: 60px; */
+  padding-top: 40px;
+}
+
+.movie_list_container .not_found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  gap: 8px;
+  color: #555;
+  padding: 250px 0;
+}
+
+.movie_list_container .not_found_icon {
+  font-size: 35px;
+}
+
+.movie_list_container ol {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.movie_list_container .more_btn {
+  display: block;
+  width: 120px;
+  margin: 60px auto;
+  border-radius: 20px;
+  background: #38276f;
+  color: #fff;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 7%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+.movie_list_container ol li {
+  width: 100%;
+  animation: fadeInUp 1s;
+}
+
+.movie_list_container ol li .movie_desc {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie_list_container ol li .movie_desc > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0 5px 0;
+}
+
+.movie_list_container ol li .movie_desc > div .age {
+  width: 28px;
+  height: 28px;
+}
+
+.movie_list_container ol li .movie_desc > div .title {
+  font-size: 15pt;
+  font-weight: bold;
+  flex-grow: 1;
+  width: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.movie_list_container ol li .movie_desc .open_date {
+  text-align: right;
+}
+
+.movie_list_container ol li > a {
+  display: block;
+  position: relative;
+  height: 350px;
+  cursor: pointer;
+}
+
+.movie_list_container .progress {
+  position: absolute;
+  left: 50%;
+  margin-left: -20px;
+  margin-top: -10px;
+}
+
+/********************************************************/
+/********************** 영화 상세 모달 *********************/
+/********************************************************/
+
+.movieinfo_modal .title_container {
+  margin: 0;
+  padding: 16px;
+}
+
+.movieinfo_modal .title_container > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 30px;
+}
+
+.movieinfo_modal .title_container > div .age {
+  width: 28px;
+  height: 28px;
+}
+
+.movieinfo_modal .contents_container {
+  padding: 30px 30px;
+}
+
+.movieinfo_modal .contents_container .img_grid {
+  display: flex;
+  justify-content: center;
+}
+
+.movieinfo_modal .contents_container .img_grid > img {
+  max-width: 245px;
+  max-height: 350px;
+  border-radius: 5px;
+}
+
+.movieinfo_modal .contents_container .detail_grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.movieinfo_modal .contents_container .detail_grid > p {
+  font-weight: bold;
+}
+
+.movieinfo_modal .contents_container .detail_grid .c_555 {
+  color: #555;
+}
+
+.movieinfo_modal .contents_container .detail_grid .rating {
+  color: #058923;
+  font-size: 25pt;
+  margin-bottom: 10px;
+}
+
+.movieinfo_modal .contents_container .detail_grid .total {
+  font-size: 25pt;
+  margin-bottom: 10px;
+}
+
+.movieinfo_modal .contents_container .desc_top {
+  margin-top: 50px;
+  font-weight: bold;
+  font-size: 20pt;
+}
+
+.movieinfo_modal .contents_container .desc {
+  font-weight: 600;
+}
+
+.movieinfo_modal .reservation_btn {
+  background-color: #38276f;
+  color: #fff;
+  /* margin: 0 30px; */
+  /* padding-left: 50px; */
+  /* padding-right: 50px; */
+  margin-top: 20px;
+  padding: 5px 50px;
+}
+
+.movieinfo_modal .movieinfo_modal_review {
+  /* display: flex;
+  flex-direction: column;
+  gap: 40px; */
+  position: relative;
+  /* min-height: 400px; */
+  max-height: 400px;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  overflow-y: auto;
+}
+
+.movieinfo_modal .movieinfo_modal_review .progress_box {
+  height: 370px;
+}
+
+.movieinfo_modal .movieinfo_modal_review .progress_box .progress {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -20px;
+  margin-left: -20px;
+}
+
+.movieinfo_modal .movieinfo_modal_review .no_review {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  gap: 8px;
+  color: #555;
+  font-weight: bold;
+  padding: 40px;
+}
+
+.movieinfo_modal .movieinfo_modal_review .no_review .no_review_icon{
+  font-size: 30px;
+}
+
+.movieinfo_modal .movieinfo_modal_review .movieinfo_modal_review_box {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 40px;
+}
+
+/* 페이징 스크롤 옵저버 div에도 css 적용 */
+.movieinfo_modal .movieinfo_modal_review .movieinfo_modal_review_box:last-child,
+.movieinfo_modal .movieinfo_modal_review .movieinfo_modal_review_box:nth-last-child(2) {
+  margin-bottom: unset !important;
+}
+
+.movieinfo_modal .movieinfo_modal_review .movieinfo_modal_review_box .rating {
+  display: flex;
+  vertical-align: middle;
+  font-weight: bold;
+  gap: 5px;
+}
+
+.movieinfo_modal .movieinfo_modal_review .movieinfo_modal_review_box .info {
+  display: flex;
+  list-style: none;
+  /* gap: 10px; */
+  font-size: 11pt;
+  color: #939396;
+}
+
+.movieinfo_modal .movieinfo_modal_review .movieinfo_modal_review_box .info li:first-child {
+  border-right: 1px solid #939396;
+  padding-right: 15px;
+}
+
+.movieinfo_modal .movieinfo_modal_review .movieinfo_modal_review_box .info li:last-child {
+  padding-left: 15px;
+}
+
+.movieinfo_modal .movieinfo_modal_footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 30px;
+  gap: 5px;
+}
+
+.movieinfo_modal .movieinfo_modal_footer > .top {
+  font-weight: bold;
+  font-size: 15pt;
+  vertical-align: middle;
+}
+
+.movieinfo_modal .movieinfo_modal_footer > .movieinfo_modal_footer_box {
+  display: flex;
+  align-items: center;
+}
+
+.movieinfo_modal .movieinfo_modal_footer > .movieinfo_modal_footer_box > p {
+  font-weight: bold;
+  font-size: 15pt;
+  margin-left: 10px;
+}
+
+.movieinfo_modal .movieinfo_modal_footer .rating_btn {
+  background-color: #38276f;
+  color: #fff;
+  width: 100%;
+}
+
+/* 외부 스크롤 */
+.movieinfo_modal .MuiDialogContent-root::-webkit-scrollbar {
+  width: 8px;
+}
+
+.movieinfo_modal .MuiDialogContent-root::-webkit-scrollbar-thumb {
+  background: #38276f;
+  border-radius: 15px;
+}
+
+.movieinfo_modal .MuiDialogContent-root::-webkit-scrollbar-track {
+  background: rgba(33, 121, 244, 0.233);
+}
+
+/* 관람객 평점 스크롤 */
+
+.movieinfo_modal .movieinfo_modal_review::-webkit-scrollbar {
+  width: 5px;
+}
+
+.movieinfo_modal .movieinfo_modal_review::-webkit-scrollbar-thumb {
+  background: #38276f;
+  border-radius: 15px;
+}
+
+.movieinfo_modal .movieinfo_modal_review::-webkit-scrollbar-track {
+  background: rgba(33, 121, 244, 0.233);
+}
+
+
+
+/********************************************************/
+/************************ notice ************************/
+/********************************************************/
+
+.notice_list_section .search_box {
+  width: 35%;
+  float: right;
+}
+
+.notice_list_section .clear_right {
+  clear: right;
+}
+
+.notice_list_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 40px 0;
+}
+
+.notice_list_container table {
+  width: 1100px;
+  border-collapse: collapse;
+  border-top: 2px solid #38276f;
+}
+
+.notice_list_container table colgroup .no_col {
+  width: 80px;
+}
+
+.notice_list_container table colgroup .title_col {
+  width: 770px;
+}
+
+.notice_list_container table colgroup .date_col {
+  width: 150px;
+}
+
+.notice_list_container table thead {
+  text-align: center;
+}
+
+.notice_list_container table thead tr td {
+  padding: 10px;
+  background: #4b3993;
+  color: #fff;
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+.notice_list_container table tbody tr {
+  border-top: 1px solid #c4c4c4;
+}
+
+.notice_list_container table tbody tr:hover {
+  background: #f3f4f590;
+}
+
+.notice_list_container table tbody tr .center {
+  text-align: center;
+  padding: 10px 20px;
+}
+
+.notice_list_container table tbody tr .title {
+  display: block;
+  padding: 10px 20px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 770px;
+  cursor: pointer;
+}
+
+.notice_list_container table tbody tr .title:hover {
+  text-decoration: underline;
+}
+
+.notice_list_container .pagination {
+  margin-top: 50px;
+}
+
+
+/********************************************************/
+/******************** 공지사항 상세 모달 *********************/
+/********************************************************/
+
+.notice_detail_modal .title_container {
+  margin: 0;
+  padding: 16px;
+}
+
+.notice_detail_modal .title_container > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 30px;
+}
+
+.notice_detail_modal .title_container .insert_date {
+  margin-top: 5px;
+  color: #555;
+  font-size: 12pt;
+}
+
+.notice_detail_modal .title_container .event_date {
+  margin-top: 5px;
+  color: #555;
+  font-size: 12pt;
+}
+
+.notice_detail_modal .contents_container {
+  padding: 30px 30px;
+}
+
+.notice_detail_modal .contents_container .desc {
+  font-weight: 600;
+}
+
+/********************************************************/
+/******************* signIn & signUp ********************/
+/********************************************************/
+
+.sign_container {
+  background: #000000ab;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 450px;
+  padding: 50px;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  border: 1px solid #555;
+  animation: fadeInUp 0.6s;
+}
+
+.sign_container .logo {
+  animation: 1.2s shake infinite alternate;
+}
+
+.sign_container .form_box {
+  margin: 20px 0;
+}
+
+.sign_container .form_box .text_field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.sign_container .sign_btn {
+  width: 100%;
+}
+
+.sign_container .sign_btn:disabled {
+  background: #ccc;
+  color: #fff;
+}
+
+.sign_container .invalid_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 40px;
+  padding: 10px;
+}
+
+.sign_container .invalid_box > span {
+  font-size: 13px;
+  color: red;
+}
+
+.sign_container .etc_box {
+  width: 100%;
+  border-top: 1px solid #dadfe6;
+  /* margin-top: 10px; */
+  padding-top: 20px;
+  text-align: center;
+}
+
+.sign_container .etc_box > p > .link {
+  text-decoration: underline;
+  padding-left: 10px;
+}
+
+.sign_container .etc_box .guide {
+  font-size: 9pt;
+  margin-top: 10px;
+  color: #555;
+}
+
+/********************************************************/
+/********************* reservation **********************/
+/********************************************************/
+
+.reservation_section .section_container > h2 {
+  color: #4c3993;
+  font-size: 2em;
+  margin-bottom: 20px;
+  margin-right: auto;
+}
+
+.reservation_container {
+  display: flex;
+  background: #fff;
+  width: 100%;
+  height: 850px;
+  border-top: 1px solid #c4c4c4;
+  border-bottom: 1px solid #c4c4c4;
+  padding: 20px 0;
+}
+
+.reservation_container ul {
+  list-style: none;
+}
+
+.reservation_container ul::-webkit-scrollbar {
+  width: 5px;  /* 스크롤바의 너비 */
+}
+
+.reservation_container ul::-webkit-scrollbar-thumb {
+  background: #22194d; /* 스크롤바의 색상 */
+  border-radius: 15px;
+}
+
+.reservation_container ul::-webkit-scrollbar-track {
+  background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
+}
+
+.reservation_container ul li.active {
+  background: #4c3993 !important;
+  color: #fff !important;
+}
+
+.reservation_container .movielist_box {
+  width: 300px;
+  height: 100%;
+  max-height: 100%;
+  padding: 20px 15px;
+}
+
+.reservation_container .movielist_box > h1 {
+  height: 5%;
+}
+
+.reservation_container .movielist_box ul {
+  position: relative;
+  height: 95%;
+  overflow: auto;
+  border: 1px solid #22194d;
+}
+
+.reservation_container .movielist_box ul .progress {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -20px;
+  margin-left: -20px;
+}
+
+.reservation_container .movielist_box ul li {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.reservation_container .movielist_box ul li:hover {
+  background: #c4c4c4;
+  transition: 0.1s all ease-in-out;
+}
+
+.reservation_container .movielist_box ul li > img {
+  width: 28px;
+  height: 28px;
+  margin-right: 5px;
+}
+
+.reservation_container .movielist_box ul li > p {
+  word-break: keep-all;
+  font-weight: bold;
+}
+
+.reservation_container .cinemalist_box {
+  width: 350px;
+  height: 100%;
+  max-height: 100%;
+  padding: 20px 15px;
+}
+
+.reservation_container .cinemalist_box > h1 {
+  height: 5%;
+}
+
+.reservation_container .cinemalist_box > div {
+  display: flex;
+  height: 95%;
+  border: 1px solid #22194d;
+}
+
+.reservation_container .cinemalist_box > div ul {
+  position: relative;
+}
+
+.reservation_container .cinemalist_box > div ul .progress {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -20px;
+  margin-left: -20px;
+}
+
+.reservation_container .cinemalist_box > div ul:first-child {
+  width: 40%;
+  overflow: auto;
+  border-right: 1px solid #c4c4c4;
+}
+
+.reservation_container .cinemalist_box > div ul:last-child {
+  width: 60%;
+  overflow: auto;
+}
+
+.reservation_container .cinemalist_box ul li {
+  display: flex;
+  align-items: center;
+  padding: 10px 5px;
+  font-size: 12pt;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.reservation_container .cinemalist_box ul li:hover {
+  background: #c4c4c4;
+  transition: 0.1s all ease-in-out;
+}
+
+.reservation_container .date_box {
+  width: 450px;
+  height: 100%;
+  max-height: 100%;
+  padding: 20px 15px;
+}
+
+.reservation_container .date_box div .progress{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -20px;
+  margin-left: -20px;
+}
+
+.reservation_container .date_box > h1 {
+  height: 5%;
+}
+
+.reservation_container .date_box > div {
+  display: flex;
+  flex-direction: column;
+  height: 95%;
+  border: 1px solid #22194d;
+  position: relative;
+}
+
+/* 날짜 */
+.reservation_container .date_box > div ul:first-child {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  text-align: center;
+  border-bottom: 1px solid #4c3993;
+}
+
+.reservation_container .date_box > div ul:first-child li {
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.reservation_container .date_box > div ul:first-child li.saturday {
+  color: blue;
+}
+
+.reservation_container .date_box > div ul:first-child li.sunday {
+  color: red;
+}
+
+.reservation_container .date_box > div ul:first-child li:hover {
+  background: #c4c4c4;
+  transition: 0.1s all ease-in-out;
+}
+
+.reservation_container .date_box > div ul:first-child li p:first-child {
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+.reservation_container .date_box > div ul:first-child li p:last-child {
+  font-size: 9pt;
+}
+
+/* 시간 */
+.reservation_container .date_box > div ul:last-child {
+  overflow: auto;
+}
+
+.reservation_container .date_box > div ul:last-child .not_found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  gap: 8px;
+  color: #555;
+  position: absolute;
+  top: 50%;
+  left: 12%;
+}
+
+.reservation_container .date_box > div ul:last-child .not_found .not_found_icon{
+  font-size: 30px;
+}
+
+.reservation_container .date_box > div ul:last-child li {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  border-bottom: 1px solid #c4c4c4;
+  cursor: pointer;
+}
+
+.reservation_container .date_box > div ul:last-child li.unavailable {
+  background: #ccc;
+}
+
+.reservation_container .date_box > div ul:last-child li:last-child {
+  border-bottom: none;
+}
+
+.reservation_container .date_box > div ul:last-child li:not(.unavailable):hover { 
+  background: #4c3993;
+  color: #fff;
+  transition: 0.15s all ease-in-out;
+}
+
+.reservation_container .date_box > div ul:last-child li .start {
+  font-weight: bold;
+  font-size: 14pt;
+}
+
+.reservation_container .date_box > div ul:last-child li .end {
+  font-size: 9pt;
+  margin-top: 2px;
+}
+
+.reservation_container .date_box > div ul:last-child li .title {
+  padding: 0 15px;
+}
+
+.reservation_container .date_box > div ul:last-child li p.unavailable {
+  position: absolute;
+  width: 100px;
+  left: 50%;
+  margin-left: -50px;
+  padding: 2px 0;
+  background: red;
+  color: #fff;
+  border: 1px solid red;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.reservation_container .date_box > div ul:last-child li .info {
+  margin-left: auto;
+  text-align: right;
+}
+
+.reservation_container .date_box > div ul:last-child li .room {
+  font-size: 10pt;
+}
+
+.reservation_container .date_box > div ul:last-child li .info .seat_cnt {
+  font-size: 10pt;
+  margin-top: 2px;
+  border: 1px solid #c4c4c4;
+  border-radius: 4px;
+  padding: 1px 4px;
+}
+
+.reservation_container .date_box > div ul:last-child li .info .seat_cnt .available {
+  font-weight: bold;
+  color: #01738b !important;
+}
+
+.reservation_container .date_box > div ul:last-child li .info .seat_cnt .impossible {
+  font-weight: bold;
+  color: red !important;
+}
+
+/********************************************************/
+/********************** 공통 확인 모달 *********************/
+/********************************************************/
+
+.confirm_modal .title_container {
+  margin: 0;
+  padding: 16px;
+}
+
+.confirm_modal .contents_container {
+  padding: 30px 100px;
+}
+
+.confirm_modal .contents_container .desc {
+  font-weight: 600;
+  text-align: center;
+}
+
+.confirm_modal .confirm_btn {
+  background-color: #38276f;
+  color: #fff;
+  margin: 0 30px;
+  padding: 10px 50px;
+  width: 140px;
+}
+
+.confirm_modal .confirm_modal_footer {
+  margin: 0 auto;
+}
+
+/********************************************************/
+/********************** 로그인 알림 모달 ********************/
+/********************************************************/
+
+.login_modal .title_container {
+  margin: 0;
+  padding: 16px;
+}
+
+.login_modal .contents_container {
+  padding: 30px 100px;
+}
+
+.login_modal .contents_container .desc {
+  font-weight: 600;
+  text-align: center;
+}
+
+.login_modal .login_btn {
+  background-color: #38276f;
+  color: #fff;
+  margin: 0 30px;
+  padding: 10px 50px;
+}
+
+.login_modal .login_modal_footer {
+  margin: 0 auto;
+}
+
+/********************************************************/
+/******************** 예매 - 좌석선택 모달 ******************/
+/********************************************************/
+
+.reservation_seat_modal .title_container {
+  margin: 0;
+  padding: 16px;
+}
+
+.reservation_seat_modal .room_name {
+  font-weight: bold;
+}
+
+.reservation_seat_modal .title_container > div {
+  display: flex;
+  align-items: center;
+}
+
+.reservation_seat_modal .title_container > div > ul {
+  display: flex;
+  list-style: none;
+  font-size: 11pt;
+  margin-left: 30px;
+}
+
+.reservation_seat_modal .title_container > div > ul li {
+  display: inline-flex;
+  padding: 0 5px;
+}
+
+.reservation_seat_modal .title_container > div > ul li p {
+  flex-shrink: 0;
+  width: 18.8679px;
+  height: 18.8679px;
+  margin: 2px;
+  border-radius: 2px;
+}
+
+.reservation_seat_modal .title_container > div > ul li p.empty {
+  border: 1px solid #c4c4c4;
+  color: #000;
+  background: #fff;
+}
+
+.reservation_seat_modal .title_container > div > ul li p.impossible {
+  border: 1px solid #c4c4c4;
+  color: #c4c4c4;
+  background: red;
+}
+
+.reservation_seat_modal .title_container > div > ul li p.active {
+  color: #fff !important;
+  background: green !important;
+}
+
+.reservation_seat_modal .reservation_count_box {
+  padding-top: 16px;
+}
+
+.reservation_seat_modal .count_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background: #382770;
+  color: #fff;
+  border-radius: 4px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.reservation_seat_modal .count {
+  width: 30px;
+  text-align: center;
+}
+
+.reservation_seat_modal .contents_container .contents_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1000px;
+  max-height: 1000px;
+  overflow: auto;
+  background: #000000c4;
+  padding-bottom: 60px;
+}
+
+.reservation_seat_modal .contents_container .contents_box .screen {
+  background: repeating-linear-gradient(-45deg, #c4c4c4, #c4c4c4 2px, #fff 0, #fff 5px);
+  width: 100%;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.reservation_seat_modal .contents_container .contents_box .seat_box {
+  position: relative;
+  text-align: center;
+}
+
+.reservation_seat_modal .contents_container .contents_box .seat_box .seat_row {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: -25px;
+  list-style: none;
+  font-weight: bold;
+}
+
+.reservation_seat_modal .contents_container .contents_box .seat_box .seat_row li {
+  /* display: inline; */
+  flex-shrink: 0;
+  width: 18.8679px;
+  height: 18.8679px;
+  margin: 2px;
+  border: 1px solid #c4c4c4;
+  background: #e08e0a;
+  color: #fff;
+  border-radius: 2px;
+}
+
+.reservation_seat_modal .contents_container .contents_box .seat_box .seat_row li.blank {
+  background: none !important;
+  border: none !important;
+}
+
+.reservation_seat_modal .contents_container .contents_box .seat_box .seat_col {
+  display: flex;
+  list-style: none;
+  font-size: 10pt;
+}
+
+.reservation_seat_modal .contents_container .contents_box .seat_box .blank_col {
+  width: 18.8679px !important;
+  height: 18.8679px !important;
+  margin: 2px !important;
+}
+
+
+.reservation_seat_modal .contents_container .contents_box .seat_box .seat_col li {
+  /* display: inline; */
+  flex-shrink: 0;
+  width: 18.8679px;
+  height: 18.8679px;
+  margin: 2px;
+  border-radius: 2px;
+}
+
+.reservation_seat_modal .contents_container .contents_box .seat_box .seat_col li.empty {
+  border: 1px solid #c4c4c4;
+  color: #000;
+  background: #fff;
+  cursor: pointer;
+}
+
+.reservation_seat_modal .contents_container .contents_box .seat_box .seat_col li.empty:hover {
+  background: skyblue;
+  transition: 0.15s all ease-in-out;
+}
+
+.reservation_seat_modal .contents_container .contents_box .seat_box .seat_col li.active {
+  color: #fff !important;
+  background: green !important;
+}
+
+.reservation_seat_modal .contents_container .contents_box .seat_box .seat_col li.impossible {
+  border: 1px solid #c4c4c4;
+  color: #c4c4c4;
+  background: red;
+  cursor: pointer;
+}
+
+.reservation_seat_modal .contents_container .contents_box .seat_box .seat_col li.blank {
+  border: 1px solid rgba(255, 255, 255, 0);
+}
+
+.reservation_seat_modal .reservation_seat_modal_footer {
+  margin: 0 auto;
+}
+
+.reservation_seat_modal .reservation_seat_modal_footer .reservation_btn {
+  background-color: #38276f;
+  color: #fff;
+  margin: 0 30px;
+  padding: 10px 50px;
+}
+
+/********************************************************/
+/********************** 예매 확인 모달 *********************/
+/********************************************************/
+
+.reservation_confirm_modal .title_container {
+  margin: 0;
+  padding: 16px;
+}
+
+.reservation_confirm_modal .contents_container {
+  padding: 30px 100px;
+}
+
+.reservation_confirm_modal .contents_container .desc {
+  font-weight: 600;
+  text-align: center;
+}
+
+.reservation_confirm_modal .confirm_btn {
+  background-color: #38276f;
+  color: #fff;
+  margin: 0 30px;
+  padding: 10px 50px;
+}
+
+.reservation_confirm_modal .reservation_confirm_modal_footer {
+  margin: 0 auto;
+}
