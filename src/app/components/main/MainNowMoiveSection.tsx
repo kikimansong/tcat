@@ -15,7 +15,8 @@ const MainNowMovieSection = ({ children }: MainNowMovieSectionProps) => {
           <div></div>
           <div className='banner_txt'>절찬 상영중!</div>
           <div>
-            <Link href='/movie'>더보기<ArrowForwardIosIcon className='font-1rem' /></Link>
+            {/* <Link href='/movie'>더보기<ArrowForwardIosIcon className='font-1rem' /></Link> */}
+            <Link href='/movie'>더보기<ArrowForwardIosIcon sx={{ fontSize: '1rem' }} /></Link>
           </div>
         </div>
         {children}

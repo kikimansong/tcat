@@ -836,9 +836,9 @@ footer {
   font-size: 20pt;
 }
 
-.movieinfo_modal .contents_container .desc {
+/* .movieinfo_modal .contents_container .desc {
   font-weight: 600;
-}
+} */
 
 .movieinfo_modal .reservation_btn {
   background-color: #38276f;
@@ -1106,7 +1106,8 @@ footer {
 }
 
 .notice_detail_modal .contents_container .desc {
-  font-weight: 600;
+  /* font-weight: 600; */
+  font-size: 14px;
 }
 
 /********************************************************/
@@ -1271,7 +1272,8 @@ footer {
 
 .reservation_container .movielist_box ul li > p {
   word-break: keep-all;
-  font-weight: bold;
+  /* font-weight: bold; */
+  font-weight: 600;
 }
 
 .reservation_container .cinemalist_box {
@@ -1502,7 +1504,7 @@ footer {
 }
 
 .confirm_modal .contents_container .desc {
-  font-weight: 600;
+  /* font-weight: 600; */
   text-align: center;
 }
 
@@ -1532,7 +1534,7 @@ footer {
 }
 
 .login_modal .contents_container .desc {
-  font-weight: 600;
+  /* font-weight: 600; */
   text-align: center;
 }
 
@@ -1748,7 +1750,7 @@ footer {
 }
 
 .reservation_confirm_modal .contents_container .desc {
-  font-weight: 600;
+  /* font-weight: 600; */
   text-align: center;
 }
 
