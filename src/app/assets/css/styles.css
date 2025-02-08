@@ -551,9 +551,9 @@ footer {
   border-bottom: 1px solid #555;
 }
 
-.event_section ul li:hover {
+/* .event_section ul li:hover {
   text-shadow: 0 0 10px #fff !important;
-}
+} */
 
 .event_section ul li:last-child {
   border-bottom: none;;
@@ -566,6 +566,10 @@ footer {
   overflow: hidden;
   text-overflow: ellipsis;
   cursor: pointer;
+}
+
+.event_section ul li .title:hover {
+  text-decoration: underline;
 }
 
 .event_section ul li .date {
@@ -634,9 +638,9 @@ footer {
   border-bottom: 1px solid #555;
 }
 
-.notice_section ul li:hover {
+/* .notice_section ul li:hover {
   text-shadow: 0 0 10px #fff !important;
-}
+} */
 
 .notice_section ul li:last-child {
   border-bottom: none;;
@@ -649,6 +653,10 @@ footer {
   overflow: hidden;
   text-overflow: ellipsis;
   cursor: pointer;
+}
+
+.notice_section ul li .title:hover {
+  text-decoration: underline;
 }
 
 .notice_section ul li .date {
