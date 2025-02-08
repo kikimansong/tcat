@@ -1,8 +1,28 @@
-"use client"; // 클라이언트 컴포넌트임을 명시
+"use client";
 
+import localFont from "next/font/local";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
+const nanumSquareNeo = localFont({
+  src: [
+    {
+      path: "../../public/fonts/NanumSquareNeoOTF-Rg.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/NanumSquareNeoOTF-Bd.otf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-nanumSquareNeo",
+});
+
 const theme = createTheme({
+  typography: {
+    fontFamily: nanumSquareNeo.style.fontFamily
+  },
   palette: {
     primary: {
       main: '#38276f',

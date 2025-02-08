@@ -154,8 +154,7 @@ img {
 }
 
 .header .menu_wrap a {
-  font-size: 13pt;
-  font-family: sans-serif;
+  font-size: 15pt;
   color: #fff;
   text-decoration: none;
   letter-spacing: 2px;
@@ -163,6 +162,7 @@ img {
   text-align: center;
   padding: 3px 10px;
   width: 150px;
+  font-weight: bold;
 }
 
 .header .menu_wrap ul {
