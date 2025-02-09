@@ -9,7 +9,7 @@ interface MovieItemProps extends MovieInterface {
   onItemClick: (movieIdx: number) => void;
 }
 
-export default function MovieItem({ movieIdx, movieName, movieImg, movieDescription, movieAge, movieOpenDt, totalRating, onItemClick }: MovieItemProps) {
+export default function MovieItem({ movieIdx, movieName, movieImg, movieDescription, movieAge, movieOpenDt, totalRating, open, onItemClick }: MovieItemProps) {
   const imgUrl = process.env.NEXT_PUBLIC_MOVIE_IMAGE_URI;
   const router = useRouter();
 
@@ -38,7 +38,7 @@ export default function MovieItem({ movieIdx, movieName, movieImg, movieDescript
             }
           })()}
           <p className='title'>
-            {movieName} 
+            {movieName}
           </p>
         </div>
         <p className='open_date'>개봉일 {movieOpenDt}</p>
@@ -47,9 +47,10 @@ export default function MovieItem({ movieIdx, movieName, movieImg, movieDescript
         <Button className='rating_btn' variant="contained" size="medium" disableRipple>
           <MoodIcon />&nbsp;{totalRating >= 10 || totalRating == 0 ? totalRating.toFixed(0) : totalRating.toFixed(1)}
         </Button>
-        <Button className="reservation_btn" variant="contained" size="medium" onClick={handleReservation}>
-          예매
-        </Button>
+        {open ? 
+          (<Button className="reservation_btn" variant="contained" size="medium" onClick={handleReservation}>예매</Button>) : 
+          (<Button className="reservation_btn" variant="contained" size="medium" disabled>상영예정</Button>)
+        }
       </div>
     </li>
   );

@@ -137,9 +137,10 @@ const MovieInfoModal = forwardRef<MovieInfoModalRef>((_, ref) => {
                   <p className='c_555'>개봉일</p>
                   <p>{data.movieOpenDt}</p>
                   <p>
-                  <Button className='reservation_btn' onClick={handleReservation}>
-                    예매하기
-                  </Button>
+                    {data.open ? 
+                      <Button className='reservation_btn' variant="contained" onClick={handleReservation}>예매하기</Button> :
+                      <Button className='reservation_btn' variant="contained" disabled>상영예정</Button>
+                    }
                   </p>
                 </Grid>
               </Grid>
@@ -152,7 +153,7 @@ const MovieInfoModal = forwardRef<MovieInfoModalRef>((_, ref) => {
             </Typography>
             <MovieInfoModalReviewList ref={movieInfoModalReviewListRef} movieIdx={data.movieIdx} />
           </DialogContent>
-          <MovieInfoModalFooter movieIdx={data.movieIdx} onRefresh={handleRefresh} />
+          <MovieInfoModalFooter movieIdx={data.movieIdx} isOpen={data.open!} onRefresh={handleRefresh} />
         </>
       )}
     </CustomDialog>

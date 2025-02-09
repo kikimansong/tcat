@@ -14,10 +14,11 @@ import { MovieInfoCustomTooltip } from './CustomTooltip';
 
 interface MovieInfoModalFooterProps {
   movieIdx: number;
+  isOpen: boolean;
   onRefresh: () => void;
 }
 
-const MovieInfoModalFooter = ({ movieIdx, onRefresh }: MovieInfoModalFooterProps) => {
+const MovieInfoModalFooter = ({ movieIdx, isOpen, onRefresh }: MovieInfoModalFooterProps) => {
   const baseUrl = process.env.NEXT_PUBLIC_SERVER_URI;
   const reviewMaxLength = 1000;
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
@@ -108,10 +109,10 @@ const MovieInfoModalFooter = ({ movieIdx, onRefresh }: MovieInfoModalFooterProps
       <DialogActions className='movieinfo_modal_footer' sx={{ '& > :not(style) ~ :not(style)': { marginLeft: 0 } }}>
         <p className='top'>감상평</p>
         <div className='movieinfo_modal_footer_box'>
-          <Rating name="half-rating" value={rating} precision={0.5} size="large" onChange={(e, value) => {handleRating(e, value)}} />
+          <Rating name="half-rating" value={rating} precision={0.5} size="large" onChange={(e, value) => {handleRating(e, value)}} disabled={!isOpen} />
           <p>{rating * 2}</p>
         </div>
-        <TextField className='full_width' value={review} onChange={(e) => {handleReview(e)}} label={`${review.length} / ${reviewMaxLength}`} variant="outlined" rows={2} placeholder='감상평을 입력해주세요.' multiline />
+        <TextField className='full_width' value={review} onChange={(e) => {handleReview(e)}} label={`${review.length} / ${reviewMaxLength}`} variant="outlined" rows={2} placeholder='감상평을 입력해주세요.' disabled={!isOpen} multiline />
         <ClickAwayListener onClickAway={handleTooltipClose}>
           <div className='full_width'>
             <MovieInfoCustomTooltip
@@ -128,7 +129,10 @@ const MovieInfoModalFooter = ({ movieIdx, onRefresh }: MovieInfoModalFooterProps
                 },
               }}
             >
-              <Button className='rating_btn' onClick={handleRatingButton} disabled={loading}>등록하기</Button>
+              {isOpen ?
+                <Button className='rating_btn' variant="contained" onClick={handleRatingButton} disabled={loading}>등록하기</Button> :
+                <Button className='rating_btn' variant="contained" disabled>상영예정 작품에는 감상평을 등록할 수 없습니다</Button>
+              }
             </MovieInfoCustomTooltip>
           </div>
         </ClickAwayListener>

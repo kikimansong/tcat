@@ -848,8 +848,8 @@ footer {
 } */
 
 .movieinfo_modal .reservation_btn {
-  background-color: #38276f;
-  color: #fff;
+  /* background-color: #38276f; */
+  /* color: #fff; */
   /* margin: 0 30px; */
   /* padding-left: 50px; */
   /* padding-right: 50px; */
@@ -960,8 +960,8 @@ footer {
 }
 
 .movieinfo_modal .movieinfo_modal_footer .rating_btn {
-  background-color: #38276f;
-  color: #fff;
+  /* background-color: #38276f; */
+  /* color: #fff; */
   width: 100%;
 }
 

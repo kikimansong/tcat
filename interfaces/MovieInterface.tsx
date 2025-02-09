@@ -8,6 +8,7 @@ export interface MovieInterface {
   movieTime: string,
   totalReservationCount: number,
   totalRating: number,
+  open?: boolean
 };
 
 export interface MovieListResponse {
