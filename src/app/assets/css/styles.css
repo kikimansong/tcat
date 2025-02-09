@@ -1402,6 +1402,7 @@ footer {
 /* 시간 */
 .reservation_container .date_box > div ul:last-child {
   overflow: auto;
+  position: relative;
 }
 
 .reservation_container .date_box > div ul:last-child .not_found {
