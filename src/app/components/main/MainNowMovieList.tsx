@@ -38,8 +38,8 @@ const MainNowMovieItem = ({ movieName, movieImg, movieDescription, movieAge, tot
   const router = useRouter();
 
   return (
-    <li onClick={onItemClick}>
-      <div className='movie_item_box'>
+    <li>
+      <div className='movie_item_box' onClick={onItemClick}>
         <div className="movie_grade_wrap">
           {(() => {
             switch (movieAge) {
