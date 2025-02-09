@@ -9,6 +9,14 @@ const nextConfig: NextConfig = {
       {
         protocol: "http",
         hostname: "localhost"
+      },
+      {
+        protocol: "https",
+        hostname: "tcat-front.site"
+      },
+      {
+        protocol: "https",
+        hostname: "www.tcat-front.site"
       }
     ]
   }
