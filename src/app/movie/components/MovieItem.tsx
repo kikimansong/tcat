@@ -1,6 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 import { useRouter } from 'next/navigation'
-// import Image from 'next/image';
+import Image from 'next/image';
 import MoodIcon from '@mui/icons-material/Mood';
 import { Button } from "@mui/material";
 import { AgeAll, Age12, Age15, Age19} from '@/app/components/AgeImage';
@@ -21,8 +20,7 @@ export default function MovieItem({ movieIdx, movieName, movieImg, movieDescript
   return (
     <li>
       <a onClick={() => { onItemClick(movieIdx) }}>
-        {/* <Image className='movie_img' src={imgUrl + movieImg} alt={movieName} width={0} height={0} layout='responsive' /> */}
-        <img className='movie_img' src={imgUrl + movieImg} alt={movieName} />
+        <Image className='movie_img' src={imgUrl + movieImg} alt={movieName} width={0} height={0} layout='responsive' />
         <div className="movie_info_container">
           <div className="movie_info">
             {movieDescription}

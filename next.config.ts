@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   // output: 'export',
   reactStrictMode: false,
   images: {
+    unoptimized: true,
     domains: ["tcat-front.site", "www.tcat-front.site"],
     remotePatterns: [ // 이미지 서버 추가
       {
