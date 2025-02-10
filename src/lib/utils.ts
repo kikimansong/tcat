@@ -50,9 +50,16 @@ export const phoneReg = (phone: string): boolean => {
 }
 
 export const birthDtReg = (birthDt: string): boolean => {
-  const birthDtRegEx = /^(\d{8})$/;
-  return birthDtRegEx.test(birthDt);
-}
+  const birthDtRegEx = /^(19[0-9]{2}|20[0-9]{2})(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])$/;
+  if (!birthDtRegEx.test(birthDt)) return false;
+
+  const year = parseInt(birthDt.substring(0, 4), 10);
+  const month = parseInt(birthDt.substring(4, 6), 10);
+  const day = parseInt(birthDt.substring(6, 8), 10);
+
+  const date = new Date(year, month - 1, day);
+  return date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day;
+};
 
 /* 10자리 또는 11자리 전화번호 사이에 하이픈 (-) 삽입 */
 export const FormattedPhone = (phone: string): string => {

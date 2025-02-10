@@ -104,7 +104,6 @@ const SignUpFormBox = () => {
           
           router.push('/signIn');
         }
-
       } catch (error) {
         console.error(error);
       } finally {
