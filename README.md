@@ -57,6 +57,16 @@ Tcat 프론트엔드 프로젝트는 HTML, CSS 기초 다지기, React의 컴포
 
 또한 백엔드에서 받아오는 데이터들을 프로젝트의 기술 스택들로 어떻게 화면에 노출할지, 그리고 혼자서 해볼 실습과 실무에서 참고하려는 이유에서도 진행했습니다.
 
+## 로그인
+로그인은 JWT 방식을 사용합니다. Access Token을 백엔드에서 전달받아 쿠키에 저장합니다.
+
+![cookie](https://github.com/kikimansong/tcat/blob/main/cookie.png?raw=true)
+
+HTTP 통신은 axios를 사용합니다. 
+`src/lib/axiosInterceptors.tsx` 파일에 등록된 axios interceptor를 통해 요청시 쿠키에 담긴 Access Token을 Header에 담아 백엔드로 전달합니다.
+응답시에는 Refresh Token과 관련된 만료 로직을 수행합니다.
+
+
 ## 상세
 예매 페이지에서 영화, 극장, 날짜 및 시간 항목을 선택 후 예매 좌석을 선택할 수 있습니다.
 
