@@ -14,7 +14,7 @@ Tcat 프로젝트의 기술 스택, 실행 방법, 소개, 목적에 관한 설�
 
 ### 기술 스택
 + npm 9.8.1
-+ Node.js 18.18.0
++ Node.js 20.x
 + Next.js 15.1.11
 + React 19.0.1
 + TypeScript ^5
