@@ -14,6 +14,7 @@
     "@kokr/date": "^0.4.0",
     "@mui/icons-material": "^6.2.1",
     "@mui/material": "^6.2.1",
+    "@vercel/analytics": "^1.6.1",
     "axios": "^1.7.9",
     "embla-carousel-autoplay": "^8.5.1",
     "embla-carousel-fade": "^8.5.1",

@@ -4,6 +4,7 @@ import "./assets/css/globals.css";
 import "./assets/css/styles.css";
 import MuiThemeProvider from "./MuiThemeProvider";
 // import { CookiesProvider } from "react-cookie";
+import { Analytics } from "@vercel/analytics/react";
 
 const nanumSquareNeo = localFont({
   src: [
@@ -40,6 +41,7 @@ export default function RootLayout({
         <MuiThemeProvider>
           {/* <CookiesProvider> */}
           {children}
+          <Analytics />
           {/* </CookiesProvider> */}
         </MuiThemeProvider>
       </body>
